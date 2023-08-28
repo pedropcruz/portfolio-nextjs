@@ -1,5 +1,14 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import dayjs from "dayjs"
+import calendar from "dayjs/plugin/calendar"
+import { motion } from "framer-motion"
+
+import "dayjs/locale/pt"
+
+import { useState } from "react"
 import {
   MdAccountCircle,
   MdArticle,
@@ -9,20 +18,35 @@ import {
   MdWork,
 } from "react-icons/md"
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
+import { ChatBot } from "../ChatBot"
+import { Button } from "../ui/button"
 import sidebar from "./styles"
 
-const { base, wrapper, logo, logoImg, list, itemList, itemLabel } = sidebar()
+dayjs.extend(calendar)
+
+const {
+  base,
+  wrapper,
+  logo,
+  logoImg,
+  list,
+  itemList,
+  itemLabel,
+  chatbotImg,
+  popoverContent,
+} = sidebar()
 
 export const SideBarMenu = () => {
+  const [dateTimeNow, setDateTimeNow] = useState(dayjs().calendar(new Date()))
+  const [isOpen, setIsOpen] = useState(false)
+
   const pageLinks = [
     {
       label: "Home",
@@ -56,6 +80,23 @@ export const SideBarMenu = () => {
     },
   ]
 
+  const openChatbot = () => {
+    setDateTimeNow(dayjs().calendar(new Date()))
+    setIsOpen(true)
+  }
+
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
   return (
     <aside className={base()}>
       <div className={wrapper()}>
@@ -80,20 +121,29 @@ export const SideBarMenu = () => {
           ))}
         </ul>
         <div>
-          <DropdownMenu>
-            <DropdownMenuTrigger className={itemList()}>
-              <Image src="/me.png" width="22" height="22" alt="chatbot" />
-              <span>Pedro Cruz Assistant</span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Billing</DropdownMenuItem>
-              <DropdownMenuItem>Team</DropdownMenuItem>
-              <DropdownMenuItem>Subscription</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <Popover open={isOpen}>
+            <PopoverTrigger asChild>
+              <Button className={itemList()} onClick={openChatbot}>
+                <Avatar className={chatbotImg()}>
+                  <AvatarImage src="/me.png" alt="chatbotimg" />
+                  <AvatarFallback>PC</AvatarFallback>
+                </Avatar>
+                <span>Pedro Cruz Assistant</span>
+              </Button>
+            </PopoverTrigger>
+
+            <motion.div variants={container} initial="hidden" animate="visible">
+              <PopoverContent
+                className={popoverContent()}
+                side="right"
+                sideOffset={24}
+                collisionPadding={{ bottom: 8 }}
+                sticky="always"
+              >
+                <ChatBot dateTime={dateTimeNow} setOpen={setIsOpen} />
+              </PopoverContent>
+            </motion.div>
+          </Popover>
         </div>
       </div>
     </aside>

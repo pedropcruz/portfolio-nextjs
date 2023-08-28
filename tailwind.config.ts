@@ -46,6 +46,7 @@ const config: Config = {
         "lg-secondary": "8px -8px 0px 0px rgb(0,0,0)",
       },
       colors: {
+        lightBg: "#FAF4F0",
         primary: {
           50: "#F6F0FF",
           100: "#EFE5FF",

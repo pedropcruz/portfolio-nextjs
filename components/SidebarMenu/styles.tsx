@@ -8,8 +8,11 @@ const sidebar = tv({
     logoImg: "h-6 mr-3 sm:h-7",
     list: "mt-8 flex flex-col gap-4 flex-1",
     itemList:
-      "text-white flex w-full items-center cursor-pointer rounded-sm gap-1 pl-4 pr-8 py-2 font-bold hover:bg-[#161616] hover:text-primary-500 text-sm ",
+      "text-white flex w-full items-center cursor-pointer rounded-sm gap-1 pl-4 pr-8 py-2 font-bold hover:bg-[#161616] hover:text-primary-500 text-sm bg-transparent justify-start",
     itemLabel: "ml-3",
+    chatbotImg: "w-6 h-6 mr-4",
+    popoverContent:
+      "min-w-[300px] p-0 bg-white border-2 rounded-sm border-black ",
   },
 })
 
