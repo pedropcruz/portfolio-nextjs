@@ -12,7 +12,7 @@ const sidebar = tv({
     itemLabel: "ml-3",
     chatbotImg: "w-6 h-6 mr-4",
     popoverContent:
-      "min-w-[300px] p-0 bg-white border-2 rounded-sm border-black ",
+      "min-w-[500px] p-0 bg-white border-2 rounded-sm border-black ",
   },
 })
 
