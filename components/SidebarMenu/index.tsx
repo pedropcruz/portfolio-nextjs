@@ -1,14 +1,14 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import dayjs from "dayjs"
-import calendar from "dayjs/plugin/calendar"
+import {useTranslations} from 'next-intl';
 import { motion } from "framer-motion"
+import dayjs from "dayjs"
 
 import "dayjs/locale/pt"
 
-import { useState } from "react"
 import {
   MdAccountCircle,
   MdArticle,
@@ -27,9 +27,9 @@ import {
 
 import { ChatBot } from "../ChatBot"
 import { Button } from "../ui/button"
-import sidebar from "./styles"
 
-dayjs.extend(calendar)
+
+import sidebar from "./styles"
 
 const {
   base,
@@ -44,58 +44,72 @@ const {
 } = sidebar()
 
 export const SideBarMenu = () => {
-  const [dateTimeNow, setDateTimeNow] = useState(dayjs().calendar(new Date()))
+  const t = useTranslations('sidebar')
+  const [dateTimeNow, setDateTimeNow] = useState(dayjs().format('h:mm A'))
   const [isOpen, setIsOpen] = useState(false)
 
   const pageLinks = [
     {
-      label: "Home",
+      label: t('links.home'),
       href: "/",
       icon: <MdHome size={16} />,
     },
     {
-      label: "Portfolio",
+      label: t('links.portfolio'),
       href: "/portfolio",
       icon: <MdWork size={16} />,
     },
     {
-      label: "About",
+      label: t('links.about'),
       href: "/about",
       icon: <MdAccountCircle size={16} />,
     },
     {
-      label: "CV",
+      label: t('links.CV'),
       href: "/cv",
       icon: <MdAssignment size={16} />,
     },
     {
-      label: "Blog",
+      label: t('links.blog'),
       href: "/blog",
       icon: <MdArticle size={16} />,
     },
     {
-      label: "Contacts",
+      label: t('links.contacts'),
       href: "/contacts",
       icon: <MdPhoneInTalk size={16} />,
     },
   ]
 
   const openChatbot = () => {
-    setDateTimeNow(dayjs().calendar(new Date()))
+    setDateTimeNow(dayjs().format('h:mm A'))
     setIsOpen(true)
   }
 
-  const container = {
-    hidden: { opacity: 1, scale: 0 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
+  const slideVerticalAnimation = {
+  open: {
+    rotateX: 0,
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      mass: 0.8,
+      type: "spring"
     },
+    display: "block"
+  },
+  close: {
+    rotateX: -15,
+    y: -320,
+    opacity: 0,
+    transition: {
+      duration: 0.3
+    },
+    transitionEnd: {
+      display: "none"
+    }
   }
+};
 
   return (
     <aside className={base()}>
@@ -120,31 +134,32 @@ export const SideBarMenu = () => {
             </li>
           ))}
         </ul>
-        <div>
-          <Popover open={isOpen}>
+          <Popover defaultOpen={false} onOpenChange={setIsOpen} modal>
             <PopoverTrigger asChild>
               <Button className={itemList()} onClick={openChatbot}>
                 <Avatar className={chatbotImg()}>
                   <AvatarImage src="/me.png" alt="chatbotimg" />
                   <AvatarFallback>PC</AvatarFallback>
                 </Avatar>
-                <span>Pedro Cruz Assistant</span>
+                <span>{t('chatbot.name')}</span>
               </Button>
             </PopoverTrigger>
-
-            <motion.div variants={container} initial="hidden" animate="visible">
               <PopoverContent
-                className={popoverContent()}
                 side="right"
                 sideOffset={24}
+                className={popoverContent()}
                 collisionPadding={{ bottom: 8 }}
                 sticky="always"
+                asChild
+                forceMount
+                onFocusOutside={() => setIsOpen(false)}
+                onInteractOutside={() => setIsOpen(false)}
               >
-                <ChatBot dateTime={dateTimeNow} setOpen={setIsOpen} />
-              </PopoverContent>
-            </motion.div>
+                <motion.div variants={slideVerticalAnimation} initial="close" animate={ isOpen ? "open" : "close"}>
+                  <ChatBot dateTime={dateTimeNow} setOpen={setIsOpen} isOpen={isOpen} />
+                </motion.div>
+              </PopoverContent> 
           </Popover>
-        </div>
       </div>
     </aside>
   )
