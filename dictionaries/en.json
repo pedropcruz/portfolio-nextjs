@@ -1,0 +1,27 @@
+{
+	"sidebar": {
+		"links": {
+			"home": "Home",
+			"portfolio": "Portfolio",
+			"about": "About",
+			"CV": "CV",
+			"blog": "Blog",
+			"contacts": "Contats"
+		},
+		"chatbot": {
+			"name": "Pedro Cruz Assistant"
+		}
+	},
+	"footer": {
+		"languages": {
+			"English": "English",
+			"Portuguese": "Portuguese",
+			"EnglishWithEmoji": "🇬🇧 English",
+			"PortugueseWithEmoji": "🇵🇹 Portuguese"
+		},
+		"links": {
+			"privacy": "Privacy Policy",
+			"license": "License"
+		}
+	}
+}
