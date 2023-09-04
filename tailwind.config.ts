@@ -22,6 +22,8 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        lightPatternBg: 'url("/light-bg.svg")',
+        darkPatternBg: 'url("/dark-bg.svg")',
       },
       keyframes: {
         "accordion-down": {
@@ -38,15 +40,22 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       boxShadow: {
-        "sm-primary": "4px 4px 0px 0px rgb(0,0,0)",
-        "md-primary": "6px 6px 0px 0px rgb(0,0,0)",
-        "lg-primary": "8px 8px 0px 0px rgb(0,0,0)",
-        "sm-secondary": "4px -4px 0px 0px rgb(0,0,0)",
-        "md-secondary": "6px -6px 0px 0px rgb(0,0,0)",
-        "lg-secondary": "8px -8px 0px 0px rgb(0,0,0)",
+        "sm-primary-light": "4px 4px 0px 0px rgb(0,0,0)",
+        "md-primary-light": "6px 6px 0px 0px rgb(0,0,0)",
+        "lg-primary-light": "8px 8px 0px 0px rgb(0,0,0)",
+        "sm-secondary-light": "4px -4px 0px 0px rgb(0,0,0)",
+        "md-secondary-light": "6px -6px 0px 0px rgb(0,0,0)",
+        "lg-secondary-light": "8px -8px 0px 0px rgb(0,0,0)",
+        "sm-primary-dark": "4px 4px 0px 0px rgba(255,255,255, 0.25)",
+        "md-primary-dark": "6px 6px 0px 0px rgba(255,255,255, 0.25)",
+        "lg-primary-dark": "8px 8px 0px 0px rgba(255,255,255, 0.25)",
+        "sm-secondary-dark": "4px -4px 0px 0px rgba(255,255,255, 0.25)",
+        "md-secondary-dark": "6px -6px 0px 0px rgba(255,255,255, 0.25)",
+        "lg-secondary-dark": "8px -8px 0px 0px rgba(255,255,255, 0.25)",
       },
       colors: {
         lightBg: "#FAF4F0",
+        darkBg: "#1A1A1A",
         primary: {
           50: "#F6F0FF",
           100: "#EFE5FF",
