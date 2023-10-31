@@ -1,27 +1,38 @@
 {
-	"sidebar": {
-		"links": {
-			"home": "Home",
-			"portfolio": "Portfolio",
-			"about": "Sobre mim",
-			"CV": "CV",
-			"blog": "Blog",
-			"contacts": "Contatos"
-		},
-		"chatbot": {
-			"name": "Assistente do Pedro Cruz"
-		}
-	},
-	"footer": {
-		"languages": {
-			"English": "Inglês",
-			"Portuguese": "Português",
-			"EnglishWithEmoji": "🇬🇧 Inglês",
-			"PortugueseWithEmoji": "🇵🇹 Português"
-		},
-		"links": {
-			"privacy": "Política de Privacidade",
-			"license": "Licença"
-		}
-	}
+  "sidebar": {
+    "links": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "about": "Sobre mim",
+      "CV": "CV",
+      "blog": "Blog",
+      "contacts": "Contatos"
+    },
+    "chatbot": {
+      "name": "Assistente do Pedro Cruz"
+    }
+  },
+  "footer": {
+    "languages": {
+      "English": "Inglês",
+      "Portuguese": "Português",
+      "EnglishWithEmoji": "🇬🇧 Inglês",
+      "PortugueseWithEmoji": "🇵🇹 Português"
+    },
+    "links": {
+      "privacy": "Política de Privacidade",
+      "license": "Licença"
+    }
+  },
+  "home": {
+    "path": "Home",
+    "intro": {
+      "title": "<strong>Frontend developer criativo</strong> de Portugal",
+      "description": "Motivado pelas possibilidades ilimitadas do design e da criação que envolvem código, sou apaixonado pela construção de tecnologia significativa e envolvente, e tenho experiência comprovada de código em sites acessíveis e de fácil utilização",
+      "learningLabel": "Atualmente a aprender: "
+    }
+  },
+  "about": {
+    "path": "Sobre mim"
+  }
 }

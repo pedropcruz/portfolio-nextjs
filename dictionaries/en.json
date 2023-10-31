@@ -1,27 +1,38 @@
 {
-	"sidebar": {
-		"links": {
-			"home": "Home",
-			"portfolio": "Portfolio",
-			"about": "About",
-			"CV": "CV",
-			"blog": "Blog",
-			"contacts": "Contats"
-		},
-		"chatbot": {
-			"name": "Pedro Cruz Assistant"
-		}
-	},
-	"footer": {
-		"languages": {
-			"English": "English",
-			"Portuguese": "Portuguese",
-			"EnglishWithEmoji": "🇬🇧 English",
-			"PortugueseWithEmoji": "🇵🇹 Portuguese"
-		},
-		"links": {
-			"privacy": "Privacy Policy",
-			"license": "License"
-		}
-	}
+  "sidebar": {
+    "links": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "about": "About",
+      "CV": "CV",
+      "blog": "Blog",
+      "contacts": "Contats"
+    },
+    "chatbot": {
+      "name": "Pedro Cruz Assistant"
+    }
+  },
+  "footer": {
+    "languages": {
+      "English": "English",
+      "Portuguese": "Portuguese",
+      "EnglishWithEmoji": "🇬🇧 English",
+      "PortugueseWithEmoji": "🇵🇹 Portuguese"
+    },
+    "links": {
+      "privacy": "Privacy Policy",
+      "license": "License"
+    }
+  },
+  "home": {
+    "path": "Home",
+    "intro": {
+      "title": "Portugal-based <strong>creative frontend developer.</strong>",
+      "description": "Driven by the limitless possibilities of design and creation involved coding, I'm passionate about building meaningfull and immersive tech, and have proven experience coding user-friendly and accessible sites",
+      "learningLabel": "Currently Learning: "
+    }
+  },
+  "about": {
+    "path": "About me"
+  }
 }

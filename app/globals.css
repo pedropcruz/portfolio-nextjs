@@ -1,29 +1,29 @@
 @tailwind base;
 
 @layer base {
+  html,
+  body {
+    @apply h-full w-full bg-lightBg transition-all dark:bg-darkBg;
+  }
 
-	html, body {
-		@apply dark:bg-darkBg bg-lightBg w-full h-full transition-all;
-	}
-
-	h1 {
-		@apply font-extrabold text-5xl leading-[56px];
-	}
-	h2 {
-		@apply font-extrabold text-4xl leading-[46px];
-	}
-	h3 {
-		@apply font-extrabold text-3xl leading-[38px];
-	}
-	h4 {
-		@apply font-extrabold text-2xl;
-	}
-	h5 {
-		@apply font-extrabold text-xl;
-	}
-	h6 {
-		@apply font-extrabold text-lg leading-[24px];
-	}
+  h1 {
+    @apply text-5xl font-extrabold leading-[56px];
+  }
+  h2 {
+    @apply text-4xl font-extrabold leading-[46px];
+  }
+  h3 {
+    @apply text-3xl font-extrabold leading-[38px];
+  }
+  h4 {
+    @apply text-2xl font-extrabold;
+  }
+  h5 {
+    @apply text-xl font-extrabold;
+  }
+  h6 {
+    @apply text-lg font-extrabold leading-[24px];
+  }
 }
 
 @tailwind components;

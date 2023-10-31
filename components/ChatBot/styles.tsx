@@ -8,8 +8,7 @@ const chatbot = tv({
     closeBtn: "ml-auto mt-0 h-auto mr-0 p-2",
     closeBtnIcon: "w-4 h-4 dark:text-white text-black",
     cardContent: "relative flex flex-col gap-2 h-[500px] overflow-y-auto py-8",
-    dateTimeLabel:
-      "text-sm font-light text-xs text-black dark:text-white",
+    dateTimeLabel: "text-sm font-light text-xs text-black dark:text-white",
     botContentMessage: "flex flex-col items-start",
     botName: "flex items-start text-xs font-bold gap-4",
     botImageContainer: "inline-block order-none",
