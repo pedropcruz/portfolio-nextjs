@@ -20,10 +20,11 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         lightPatternBg: 'url("/light-bg.svg")',
         darkPatternBg: 'url("/dark-bg.svg")',
+        lightPatternBgForLoginLayout: 'url("/light-bg-signin.svg")',
+        darkPatternBgForLoginLayout: 'url("/dark-bg-signin.svg")',
       },
       keyframes: {
         "accordion-down": {
@@ -124,6 +125,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [async () => (await import("@tailwindcss/typography")).default],
 }
 export default config
